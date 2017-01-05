@@ -5,6 +5,7 @@
 const Lab = require('lab');
 const Code = require('code');
 const LabbableServer = require('../server');
+const Items = require('items');
 
 // Test shortcuts
 
@@ -30,7 +31,56 @@ describe('User Boilerplate API server', () => {
 
             server = srv;
 
-            return done();
+            const tables = [
+                {
+                    tableName: 'Users',
+                    columns: [{
+                        name: 'email',
+                        type: 'string'
+                    },{
+                        name: 'password',
+                        type: 'string'
+                    },{
+                        name: 'firstName',
+                        type: 'string'
+                    },{
+                        name: 'lastName',
+                        type: 'string'
+                    },{
+                        name: 'resetToken',
+                        type: 'string'
+                    }]
+                },
+                {
+                    tableName: 'Tokens',
+                    columns: [{
+                        name: 'uuid',
+                        type: 'string'
+                    },{
+                        name: 'user',
+                        type: 'integer'
+                    }]
+                }
+            ];
+
+            const knex = server.knex();
+
+            Items.parallel(tables, (tableObj, next) => {
+
+                knex.schema.createTableIfNotExists(tableObj.tableName, (table) => {
+
+                    table.integer('id').primary();
+
+                    tableObj.columns.forEach((col) => {
+
+                        table[col.type](col.name);
+                    });
+                }).then(next);
+            }, (err) => {
+
+                expect(err).to.equal([]);
+                return done();
+            });
         });
     });
 
