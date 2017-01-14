@@ -23,6 +23,6 @@ module.exports = {
     },
 
     schwifty: {
-        knexConfig: require('./knexConfig')[process.env.NODE_ENV]
+        knex: require('./knexconfig')[process.env.NODE_ENV]
     }
 };
