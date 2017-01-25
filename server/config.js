@@ -24,5 +24,9 @@ module.exports = {
 
     schwifty: {
         knex: require('./knexconfig')[process.env.NODE_ENV]
+    },
+
+    schwiftyMigration: {
+        migrationsDir: __dirname
     }
 };

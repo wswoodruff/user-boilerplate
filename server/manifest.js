@@ -26,6 +26,12 @@ const manifest = module.exports = {
                 options: Config.schwifty
             }
         },
+        // {
+        //     plugin: {
+        //         register: 'schwifty-migration',
+        //         options: Config.schwiftyMigration
+        //     }
+        // },
         {
             plugin: {
                 register: 'bassmaster',
