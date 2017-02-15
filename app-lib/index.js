@@ -1,6 +1,5 @@
 'use strict';
 
-const Package = require('../package.json');
 const HauteCouture = require('haute-couture')();
 
 exports.register = (server, options, next) => {
@@ -16,7 +15,5 @@ exports.register = (server, options, next) => {
 };
 
 exports.register.attributes = {
-    pkg: Package
+    pkg: { name: 'my-app' }
 };
-
-exports.Users = require('./schwifty-models/users').base;

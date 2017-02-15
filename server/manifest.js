@@ -43,12 +43,11 @@ const manifest = module.exports = {
         },
         {
             plugin: {
-                register: '../lib',
+                register: '../app-lib',
                 options: Config.main
             }
         }
     ]
-
 };
 
 if (process.env.NODE_ENV !== 'production') {
