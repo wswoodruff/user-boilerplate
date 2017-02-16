@@ -42,6 +42,10 @@ describe('User Boilerplate API server', () => {
                             primary: 'true'
                         },
                         {
+                            name: 'dogId',
+                            type: 'integer'
+                        },
+                        {
                             name: 'email',
                             type: 'string'
                         },
@@ -75,6 +79,20 @@ describe('User Boilerplate API server', () => {
                             type: 'integer'
                         }
                     ]
+                },
+                {
+                    tableName: 'dogs',
+                    columns: [
+                        {
+                            name: 'id',
+                            type: 'integer',
+                            primary: 'true'
+                        },
+                        {
+                            name: 'name',
+                            type: 'string'
+                        }
+                    ]
                 }
             ];
 
@@ -95,14 +113,17 @@ describe('User Boilerplate API server', () => {
                         columnNext();
                     }, (columnErr) => {
 
-                        expect(columnErr).to.equal(undefined);
+                        expect(columnErr).to.not.exist();
                     });
                 }).then(next);
             }, (err) => {
 
                 //coming out of knex promise should be empty array instead of undef
                 expect(err).to.equal([]);
-                return done();
+
+                const Dogs = server.models(true).Dogs;
+
+                return Dogs.query().insert({ name: 'Guinness' }).asCallback(done);
             });
         });
     });
@@ -118,7 +139,8 @@ describe('User Boilerplate API server', () => {
                     email: 'test@test.com',
                     password: 'password',
                     firstName: 'Test',
-                    lastName: 'Test'
+                    lastName: 'Test',
+                    dogId: 1
                 }
             };
 
@@ -199,6 +221,32 @@ describe('User Boilerplate API server', () => {
             });
         });
 
+        it('Can fetch a user\'s dogs.', (done) => {
+
+            const options = {
+                method: 'get',
+                url: '/users',
+                headers : {
+                    'authorization' : jwt,
+                    'content-type' : 'application/json; charset=utf-8'
+                }
+            };
+
+            server.inject(options, (res1) => {
+
+                const userId = res1.result[0].id;
+
+                server.inject({
+                    method: 'get',
+                    url: `/users/${userId}/dog`
+                }, (res2) => {
+
+                    expect(res2.result).to.contain({ name: 'Guinness' });
+                    done();
+                });
+            });
+        });
+
         it('Can delete a user', (done) => {
 
             const options = {
@@ -229,6 +277,5 @@ describe('User Boilerplate API server', () => {
                 });
             });
         });
-
     });
 });

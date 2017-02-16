@@ -9,6 +9,7 @@ module.exports = class Users extends BaseUsers {
     static get joiSchema() {
 
         return super.joiSchema.keys({
+            dogId: Joi.number().integer(),
             favoriteFood: Joi.string().allow(null)
         });
     }
