@@ -43,7 +43,7 @@ const manifest = module.exports = {
         },
         {
             plugin: {
-                register: '../app-lib',
+                register: '../lib',
                 options: Config.main
             }
         }
