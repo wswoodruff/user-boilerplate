@@ -34,10 +34,12 @@
     "jsonwebtoken": "5.x.x",
     "knex": "0.x.x",
     "labbable": "2.x.x",
+    "loveboat": "^1.5.0",
     "mysql": "2.x.x",
     "objection": "0.x.x",
-    "schwifty": "1.x.x",
+    "schwifty": "^1.0.0",
     "sqlite3": "3.x.x",
+    "tmp": "0.0.31",
     "uuid": "3.x.x",
     "vision": "4.x.x"
   },
