@@ -39,6 +39,7 @@
     "schwifty": "^1.0.0",
     "sqlite3": "3.x.x",
     "tmp": "0.0.31",
+    "user-acl": "git+https://github.com/WilliamSWoodruff/user-acl.git",
     "uuid": "3.x.x",
     "vision": "4.x.x"
   },
