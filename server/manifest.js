@@ -42,9 +42,6 @@ const manifest = module.exports = {
             plugin: './plugins/pinger'
         },
         {
-            plugin: 'user-acl'
-        },
-        {
             plugin: {
                 register: '../lib',
                 options: Config.main
