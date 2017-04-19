@@ -36,7 +36,7 @@
     "labbable": "2.x.x",
     "mysql": "2.x.x",
     "objection": "0.x.x",
-    "schwifty": "^1.0.0",
+    "schwifty": "^1.1.0",
     "sqlite3": "3.x.x",
     "tmp": "0.0.31",
     "uuid": "3.x.x",
