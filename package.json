@@ -24,9 +24,9 @@
     "hapi-auth-jwt2": "5.x.x",
     "jsonwebtoken": "5.x.x",
     "node-uuid": "1.4.x",
-    "sails-mysql": "0.12.x",
+    "sails-mysql": "1.0.0",
     "vision": "4.x.x",
-    "waterline": "0.12.x",
+    "waterline": "0.13.1",
     "waterline-to-boom": "1.x.x",
     "boom": "4.x.x",
     "dogwater": ">=2.2.0 <3",
@@ -39,10 +39,7 @@
     "inert": "4.x.x",
     "joi": "10.x.x",
     "labbable": "2.x.x",
-    "sails-disk": "0.10.x",
-    "vision": "4.x.x",
-    "waterline": "0.12.x"
-
+    "sails-disk": "0.10.x"
   },
   "devDependencies": {
     "code": "3.x.x",
