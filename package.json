@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node server",
     "test": "lab -a code -L",
-    "lint": "lab -dL"
+    "lint": "lab -dL",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -24,7 +26,7 @@
     "hapi-auth-jwt2": "5.x.x",
     "jsonwebtoken": "5.x.x",
     "node-uuid": "1.4.x",
-    "sails-mysql": "0.12.x",
+    "sails-mysql": "1.0.0",
     "vision": "4.x.x",
     "waterline": "0.12.x",
     "waterline-to-boom": "1.x.x",
@@ -39,15 +41,14 @@
     "inert": "4.x.x",
     "joi": "10.x.x",
     "labbable": "2.x.x",
-    "sails-disk": "0.10.x",
-    "vision": "4.x.x",
-    "waterline": "0.12.x"
-
+    "sails-disk": "1.0.0",
+    "snyk": "^1.88.0"
   },
   "devDependencies": {
     "code": "3.x.x",
     "eslint-config-hapi": "10.x.x",
     "eslint-plugin-hapi": "4.x.x",
     "lab": "11.x.x"
-  }
+  },
+  "snyk": true
 }
