@@ -20,7 +20,7 @@
   "homepage": "https://github.com/mattboutet/user-boilerplate/",
   "dependencies": {
     "bassmaster": "2.x.x",
-    "bcrypt": "0.8.x",
+    "bcrypt": "5.0.0",
     "hapi-auth-jwt2": "5.x.x",
     "jsonwebtoken": "5.x.x",
     "node-uuid": "1.4.x",
